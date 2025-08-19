@@ -1,0 +1,21 @@
+.navbar {
+  background-color: white;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+.navbar a {
+  text-decoration: none;
+  font-size: 12px;
+}
+.nav {
+  display: flex;
+  gap: 1rem;
+}
