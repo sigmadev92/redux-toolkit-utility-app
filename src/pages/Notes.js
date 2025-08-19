@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import NoteForm from "../components/NoteForm";
 import NoteList from "../components/NoteList";
 import styles from "../styles/Notes.module.css";
-import store from "../redux/store";
+import store from "../reduxjs_toolkit/store";
 function Notes() {
   return (
     <div className={styles.notes}>

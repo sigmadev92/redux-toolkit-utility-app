@@ -1,14 +1,15 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/actions/todoActions";
+import { actions } from "../reduxjs_toolkit/slices/todoSlice";
 function TodoForm() {
   const inputTodoRef = useRef();
+  const { add } = actions;
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const todoText = inputTodoRef.current.value;
-    dispatch(addTodo(todoText));
+    dispatch(add(todoText));
     inputTodoRef.current.value = "";
   };
   return (

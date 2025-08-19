@@ -1,15 +1,15 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
-import { addNote } from "../redux/actions/noteActions";
+import { actions } from "../reduxjs_toolkit/slices/noteSlice";
 
 function NoteForm() {
   const inputNoteRef = useRef();
   const dispatch = useDispatch();
-
+  const { add } = actions;
   const handleSubmit = (e) => {
     e.preventDefault();
     const noteText = inputNoteRef.current.value;
-    dispatch(addNote(noteText));
+    dispatch(add(noteText));
     inputNoteRef.current.value = "";
   };
   return (

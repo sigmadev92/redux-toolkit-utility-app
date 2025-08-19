@@ -2,7 +2,7 @@ import styles from "../styles/Todo.module.css";
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
 import { Provider } from "react-redux";
-import store from "../redux/store";
+import store from "../reduxjs_toolkit/store";
 function Todo() {
   return (
     <div className={`${styles.todoPage} page`}>

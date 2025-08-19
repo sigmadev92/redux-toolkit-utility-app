@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTodo } from "../redux/actions/todoActions";
+import { actions, todoSelector } from "../reduxjs_toolkit/slices/todoSlice";
 function TodoList() {
-  const { todos } = useSelector((state) => state.todoReducer);
+  const todos = useSelector(todoSelector);
   const dispatch = useDispatch();
+  const { toggle } = actions;
   return (
     <div id="todolist">
       <h3>Total Todos {todos.length}</h3>
@@ -16,7 +17,7 @@ function TodoList() {
               <span>{todo.completed ? "" : "Not "} Completed</span>
               <button
                 className="btn btn-toggle"
-                onClick={() => dispatch(toggleTodo(index))}
+                onClick={() => dispatch(toggle(index))}
               >
                 Toggle
               </button>
