@@ -1,9 +1,14 @@
-import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../reduxjs_toolkit/slices/todoSlice";
+import {
+  notificationSelector,
+  NotificationActions,
+} from "../reduxjs_toolkit/slices/notificationSlice";
 function TodoForm() {
   const inputTodoRef = useRef();
   const { add } = actions;
+  const message = useSelector(notificationSelector);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -12,8 +17,20 @@ function TodoForm() {
     dispatch(add(todoText));
     inputTodoRef.current.value = "";
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(NotificationActions.reset());
+    }, 1000);
+    // eslint-disable-next-line
+  }, [message]);
   return (
     <div className="form-container">
+      {message && (
+        <p style={{ backgroundColor: "#1fe011ff", color: "white" }}>
+          {message}
+        </p>
+      )}
       <div className="form-header">
         <h2>Todo Form</h2>
       </div>
